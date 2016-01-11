@@ -14,6 +14,8 @@ var jsSources = [
 
 var sassSources = ['components/sass/style.scss'];
 
+var htmlSources = ['builds/development/*.html'];
+
 // coffee process
 gulp.task('coffee', function() {
 	gulp.src(coffeeSources)
@@ -50,6 +52,7 @@ gulp.task('watch', function() {
 	gulp.watch(coffeeSources, ['coffee']);
 	gulp.watch(jsSources, ['js']);
 	gulp.watch('components/sass/*.scss', ['compass']);
+	gulp.watch(htmlSources, ['html']);
 });
 
 // Live Reload
@@ -58,6 +61,12 @@ gulp.task('connect', function() {
 		root: 'builds/development/',
 		livereload: true
 	})
+});
+
+// html process
+gulp.task('html', function() {
+	gulp.src(htmlSources)
+	.pipe(connect.reload())
 });
 
 // all process same time
