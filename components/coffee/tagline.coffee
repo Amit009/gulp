@@ -1,5 +1,5 @@
 $ = require 'jquery'
 
-do fill = (item = 'Gulp Workflow Management') ->
-  $('.tagline h2').append "#{item}"
+do fill = (item = 'Gulp Workflow Managements') ->
+  $('.tagline').append "#{item}"
 fill
